@@ -40,3 +40,83 @@ db.people.find( {"children.age": {$lt:4}} )
 db.people.find( {children: {$size:0}} )
 
 db.people.find({'children.0': {$exists: true}})
+
+
+
+
+///PART 2///
+1.1. db.people.insert(
+    { first_name: "dwayne", 
+    last_name: "toler", 
+    email: "dwayne@email.com", 
+    gender:"Male", 
+    age: 200, 
+    state: "Sinaloa", 
+    "children": []
+    }
+)
+
+2. db.people.insert(
+    { first_name: "dj", 
+    last_name: "toler", 
+    email: "dj@email.com", 
+    gender:"Male", 
+    age: 200, 
+    state: "Sinaloa", 
+    "children": [
+        {name: "Kathy", age: 350}, 
+        {name: "Kenny", age: 3687}
+    ]
+    }
+)
+
+3.db.people.updateOne(
+    {first_name: "Clarence"},
+    {$set: {state:"South Dakota"} }
+)
+
+4. db.people.updateOne(
+    {first_name: "Rebecca", last_name:"Hayes"},
+    { $set: {email:""} }
+)
+
+5. db.people.updateMany(
+    {state:"Missouri"},
+    { $inc: {age:1} }
+)
+
+6. db.people.replaceOne( {first_name: "Jerry", last_name:"Baker"},  
+    { 
+    first_name: "Jerry", 
+    last_name: "Baker-Mendez", 
+    email: "jerry@classic.ly", 
+    gender:"Male", 
+    age: 28, 
+    state: "Vermont", 
+    "children": [
+        {name: "Alan", age: 18}, 
+        {name: "Jenny", age: 3}
+    ] 
+})
+
+7. db.people.deleteOne( {first_name:"Wanda", last_name:"Bowman"} )
+
+8. db.people.deleteMany( {email:mull} )
+
+9. db.submissions.insert([
+{title: "The River Bend", upvotes: 10, downvotes: 2, artist: "61f0f733236e4a01bd6f95eb"}
+{title: "Nine Lives", upvotes: 7, downvotes: 0, artist: "61f0f733236e4a01bd6f9619"}
+{title: "Star Bright", upvotes: 19, downvotes: 3, artist: "61f0f733236e4a01bd6f969c"}
+{title: "Why Like This?", upvotes: 1, downvotes: 5, artist: "61f0f733236e4a01bd6f9622"}
+{title: "Non Sequitur", upvotes: 11, downvotes: 1, artist: "61f0f733236e4a01bd6f95e9"}
+])
+
+10. db.submissions.updateOne(
+    {title:"The River Bend"},
+    { $inc: {upvotes:2} }
+)
+
+11. db.submissions.updateMany(
+    {upvotes:{$gte:10}},
+    {$set: {round2: true} }
+)
