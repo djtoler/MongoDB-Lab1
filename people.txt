@@ -32,3 +32,11 @@ $and: [
 12. db.people.find( {state:"Montana"}, {age:0} )
 
 13. db.people.find( {email: /.edu$/}, {email:1} )
+
+// Extended Challenges //
+
+db.people.find( {"children.age": {$lt:4}} )
+
+db.people.find( {children: {$size:0}} )
+
+db.people.find({'children.0': {$exists: true}})
