@@ -33,7 +33,7 @@ $and: [
 
 13. db.people.find( {email: /.edu$/}, {email:1} )
 
-// Extended Challenges //
+*****************************// Extended Challenges //*********************************
 
 db.people.find( {"children.age": {$lt:4}} )
 
@@ -44,7 +44,8 @@ db.people.find({'children.0': {$exists: true}})
 
 
 
-///PART 2///
+                                                    ///PART 2///                       
+
 1.1. db.people.insert(
     { first_name: "dwayne", 
     last_name: "toler", 
@@ -120,6 +121,8 @@ db.people.find({'children.0': {$exists: true}})
     {upvotes:{$gte:10}},
     {$set: {round2: true} }
 )
+
+*****************************// Extended Challenges //*********************************
 
 12. db.people.updateOne(
     {first_name:"Helen", last_name:"Clark"},
